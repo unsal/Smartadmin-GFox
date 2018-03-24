@@ -190,7 +190,7 @@ if (SmartadminConfig.voice_command) {
   SmartadminConfig.commands = {
 
     'show dashboard': {
-      type: 'navigate', payload: '/dashboard/analytics'
+      type: 'navigate', payload: '/gostergeler/kpi'
     },
     'show social': {
       type: 'navigate', payload: '/dashboard/social-wall'

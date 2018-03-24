@@ -1,12 +1,12 @@
 export default {
-  path: 'dashboard',
+  path: 'gostergeler',
   component: require('../../components/common/Layout').default,
 
-  indexRoute: { onEnter: (nextState, replace) => replace('/dashboard/analytics') },
+  indexRoute: { onEnter: (nextState, replace) => replace('/gostergeler/kpi') },
 
   childRoutes: [
     {
-      path: 'analytics',
+      path: 'kpi',
       getComponent(nextState, cb){
         System.import('./containers/Dashboard').then((m)=> {
           cb(null, m.default)

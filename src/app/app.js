@@ -11,7 +11,7 @@ const history = syncHistoryWithStore(hashHistory, store);
 const routes = {
 
   path: '/',
-  indexRoute: { onEnter: (nextState, replace) => replace('/dashboard') },
+  indexRoute: { onEnter: (nextState, replace) => replace('/gostergeler') },
   childRoutes: [
     // require('./routes/home').default,
 

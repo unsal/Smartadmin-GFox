@@ -7,7 +7,7 @@ export default class LockedScreen extends React.Component {
     return (
       <div id="extr-page">
         <div id="main" role="main">
-          <form className="lockscreen animated flipInY" action="#/dashboard/analytics">
+          <form className="lockscreen animated flipInY" action="#/dashboard/kpi">
             <div className="logo">
               <h1 className="semi-bold"><img src="assets/img/logo-o.png" alt=""/> SmartAdmin</h1>
             </div>
