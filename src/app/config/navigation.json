@@ -17,30 +17,101 @@
     },
     {
       "title": "VERBIS",
-      "icon": "fa fa-lg fa-fw fa-cube",
+      "icon": "fa fa-lg fa-fw fa-institution",
       "items": [
         {
-          "icon": "fa fa-gear",
+          "icon": "fa fa-tags",
           "title": "Genel Tanımlar",
-          "route": "/verbis/geneltanimlar"
+          "items": [
+              {
+                "icon": "fa fa-user",
+                "title": "Profiller",
+                "route": "/verbis/profiller"
+              },
+              {
+                "icon": "fa fa-group",
+                "title": "Birimler",
+                "route": "/verbis/birimler"
+              },
+              {
+                "icon": "fa fa-shield",
+                "title": "Kişisel Veriler",
+                "route": "/verbis/kv"
+              },
+              {
+                "icon": "fa fa-cogs",
+                "title": "İşlenme Amacı",
+                "route": "/verbis/islenmeamaci"
+              },
+              {
+                "icon": "fa fa-stack-overflow",
+                "title": "Toplama Kanalları",
+                "route": "/verbis/toplamakanallari"
+              },
+              {
+                "icon": "fa fa-hdd-o",
+                "title": "KV Sistemler",
+                "route": "/verbis/kvsistemler"
+              },
+              {
+                "icon": "fa fa-files-o",
+                "title": "KV Dokümanlar",
+                "route": "/verbis/kvdokumanlar"
+              },
+              {
+                "icon": "fa fa-columns",
+                "title": "Dayananklar",
+                "route": "/verbis/dayanaklar"
+              },
+              {
+                "icon": "fa fa-folder-open-o",
+                "title": "Arşiv Ortamlar",
+                "route": "/verbis/arsivortamlari"
+              },
+              {
+                "icon": "fa fa-clock-o",
+                "title": "Saklama Süresi",
+                "route": "/verbis/saklamasuresi"
+              },
+              {
+                "icon": "fa fa-sitemap",
+                "title": "Kurumlar",
+                "route": "/verbis/kurumlar"
+              },
+              {
+                "icon": "fa fa-share-square-o",
+                "title": "Paylaşım Amacı",
+                "route": "/verbis/paylasimamaci"
+              },
+              {
+                "icon": "fa fa-share",
+                "title": "Paylaşım Şekli",
+                "route": "/verbis/paylasimsekli"
+              },
+              {
+                "icon": "fa fa-flag-o",
+                "title": "Güvenli Ülkeler",
+                "route": "/verbis/guvenliulkeler"
+              }
+          ]
         },
         {
-          "icon": "fa fa-picture-o",
+          "icon": "fa fa-tag",
           "title": "Süreç Sahibi",
           "route": "/verbis/surecsahibi"
         },
         {
-          "icon": "fa fa-picture-o",
+          "icon": "fa fa-institution",
           "title": "Verbis KV",
           "route": "/verbis/verbiskv"
         },
         {
-          "icon": "fa fa-picture-o",
+          "icon": "fa fa-tag",
           "title": "Denetim Faaliyeti",
           "route": "/verbis/denetimfaaliyeti"
         },
         {
-          "icon": "fa fa-picture-o",
+          "icon": "fa fa-tag",
           "title": "Süreç İyileştirme",
           "route": "/verbis/sureciyilestirme"
         }
