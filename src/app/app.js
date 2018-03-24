@@ -13,10 +13,7 @@ const routes = {
   path: '/',
   indexRoute: { onEnter: (nextState, replace) => replace('/gostergeler') },
   childRoutes: [
-    // require('./routes/home').default,
-
-
-    require('./routes/dashboard').default,
+    require('./routes/gostergeler').default,
     // require('./routes/smartadmin-intel').default,
     // require('./routes/widgets').default,
     // require('./routes/outlook').default,

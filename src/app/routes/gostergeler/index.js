@@ -8,16 +8,16 @@ export default {
     {
       path: 'kpi',
       getComponent(nextState, cb){
-        System.import('./containers/Dashboard').then((m)=> {
+        System.import('./containers/KPI').then((m)=> {
           cb(null, m.default)
         })
       }
     }
     ,
     {
-      path: 'social-wall',
+      path: 'raporlar',
       getComponent(nextState, cb){
-        System.import('./containers/SocialWall').then((m)=> {
+        System.import('./containers/Raporlar').then((m)=> {
           cb(null, m.default)
         })
       }
