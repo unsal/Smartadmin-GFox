@@ -11,12 +11,12 @@ const history = syncHistoryWithStore(hashHistory, store);
 const routes = {
 
   path: '/',
-  indexRoute: { onEnter: (nextState, replace) => replace('/home') },
+  indexRoute: { onEnter: (nextState, replace) => replace('/dashboard') },
   childRoutes: [
-    require('./routes/home').default,
+    // require('./routes/home').default,
 
 
-    // require('./routes/dashboard').default,
+    require('./routes/dashboard').default,
     // require('./routes/smartadmin-intel').default,
     // require('./routes/widgets').default,
     // require('./routes/outlook').default,
