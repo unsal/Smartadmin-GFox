@@ -17,7 +17,7 @@ const routes = {
     // require('./routes/smartadmin-intel').default,
     // require('./routes/widgets').default,
     // require('./routes/outlook').default,
-    // require('./routes/tables').default,
+    require('./routes/tables').default
     // require('./routes/ui').default,
     // require('./routes/graphs').default,
     // require('./routes/e-commerce').default,
@@ -26,7 +26,7 @@ const routes = {
     // require('./routes/app-views').default,
     // require('./routes/maps').default,
     // require('./routes/calendar').default,
-    // require('./routes/forms').default,
+    // require('./routes/forms').default
 
 
     // comment unused routes when develop
