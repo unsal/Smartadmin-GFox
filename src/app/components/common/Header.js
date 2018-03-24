@@ -40,7 +40,7 @@ export default class Header extends React.Component {
         <ul id="mobile-profile-img" className="header-dropdown-list hidden-xs padding-5">
           <li className="">
             <a className="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-              <img src="assets/img/avatars/sunny.png" alt="John Doe" className="online"/>
+              <img src="assets/img/avatars/sunny.png" alt="U2Y" className="online"/>
             </a>
             <ul className="dropdown-menu pull-right">
               <li>

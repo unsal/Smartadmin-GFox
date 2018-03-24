@@ -186,7 +186,7 @@ class OutlookReplay extends React.Component {
 
           <div className="inbox-message no-padding">
 
-            <Summernote id="emailbody"><br /><br /><span>Thanks,</span><br /><strong>John Doe</strong><br /><br />
+            <Summernote id="emailbody"><br /><br /><span>Thanks,</span><br /><strong>U2Y</strong><br /><br />
               <div className="email-reply-text">
                 <p>
                   <span>{message.contact.name}</span>
