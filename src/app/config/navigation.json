@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "title": "Göstergeler",
+
+      "icon": "fa fa-lg fa-fw fa-home",
+      "items": [
+        {
+          "route": "/gostergeler/kpi",
+          "title": "KPI"
+        },
+        {
+          "route": "/gostergeler/raporlar",
+          "title": "Raporlar"
+        }
+      ]
+    },
+    {
+      "title": "VERBIS",
+      "icon": "fa fa-lg fa-fw fa-cube",
+      "items": [
+        {
+          "icon": "fa fa-gear",
+          "title": "Genel Tanımlar",
+          "route": "/verbis/geneltanimlar"
+        },
+        {
+          "icon": "fa fa-picture-o",
+          "title": "Süreç Sahibi",
+          "route": "/verbis/surecsahibi"
+        },
+        {
+          "icon": "fa fa-picture-o",
+          "title": "Verbis KV",
+          "route": "/verbis/verbiskv"
+        },
+        {
+          "icon": "fa fa-picture-o",
+          "title": "Denetim Faaliyeti",
+          "route": "/verbis/denetimfaaliyeti"
+        },
+        {
+          "icon": "fa fa-picture-o",
+          "title": "Süreç İyileştirme",
+          "route": "/verbis/sureciyilestirme"
+        }
+      ]
+    },
+    {
+      "title": "KV Talepleri",
+      "route": "/kvtalepleri",
+      "icon": "fa fa-lg fa-fw fa-inbox",
+      "badge": {
+        "label": "5",
+        "class": "badge pull-right bg-color-red"
+      }
+    },
+    {
+      "title": "Sorgula",
+      "route": "/sorgula",
+      "icon": "fa fa-lg fa-fw fa-inbox"
+    },
+    {
+      "title": "Ayarlar",
+      "icon": "fa fa-lg fa-fw fa-bar-chart-o",
+      "items": [
+        {
+          "title": "Kullanıcılar",
+          "route": "/ayarlar/kullanicilar"
+        },
+        {
+          "title": "Verbis Entegrasyon",
+          "route": "/ayarlar/verbisentegrasyon"
+        },
+        {
+          "title": "Seçenekler",
+          "route": "/ayarlar/secenekler"
+        }
+      ]
+    },
+    {
+      "title": "Çıkış",
+      "icon": "fa fa-lg fa-fw fa-table",
+      "route": "/cikis"
+    }
+
+  ]
+}
