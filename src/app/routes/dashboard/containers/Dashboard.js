@@ -17,28 +17,20 @@ import TodoWidget from '../../../components/todo/components/TodoWidget'
 
 export default class Dashboard extends React.Component {
   render() {
-    return (
-      <div id="content">
-
+    return <div id="content">
         <div className="row">
-          <BigBreadcrumbs items={['Dashboard', 'My Dashboard']}
-                          className="col-xs-12 col-sm-7 col-md-7 col-lg-4"/>
+          <BigBreadcrumbs items={["Dashboard", "My Dashboard"]} className="col-xs-12 col-sm-7 col-md-7 col-lg-4" />
           <Stats />
         </div>
 
         <WidgetGrid>
-
           <div className="row">
             <article className="col-sm-12">
-
               <LiveFeeds />
-
             </article>
           </div>
 
-
-          <div className="row">
-
+          {/* <div className="row">
             <article className="col-sm-12 col-md-12 col-lg-6">
 
               <ChatWidget />
@@ -48,15 +40,13 @@ export default class Dashboard extends React.Component {
             </article>
 
             <article className="col-sm-12 col-md-12 col-lg-6">
-
               <BirdEyeWidget />
 
               <TodoWidget />
-
             </article>
-          </div>
+          </div> */}
+
         </WidgetGrid>
-      </div>
-    )
+      </div>;
   }
 }
