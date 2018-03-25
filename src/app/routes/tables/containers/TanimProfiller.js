@@ -1,10 +1,41 @@
 import React from 'react';
 import {Stats, BigBreadcrumbs, WidgetGrid, JarvisWidget}  from '../../../components';
-import Datatable from '../../../components/tables/Datatable';
+import UiDialogLauncher from "../../../components/ui/UiDialogLauncher";
 import axios from "axios";
 
 
 // import data from "./data-profiller.json";
+class SilDialogKutusu extends React.Component {
+  _submitDialog = e => {
+    console.log("submit stuff");
+    this.props.closeDialog(e);
+  };
+  render() {
+    return (
+      <div id="dialog_simple">
+        <form>
+          <p>
+            Eğer bu profil kişisel veri ve süreç envanteri
+            ile ilişkilendirilmişse silinemeyecektir.
+            Öncelikle tüm ilişkileri silmeniz gerekecektir.
+          </p>
+
+          <div>
+            <button className="btn btn-default" onClick={this._submitDialog}>
+              <i className="fa fa-trash-o" />&nbsp; Sil
+            </button> {' '}
+            <button
+              className="btn btn-danger"
+              onClick={this.props.closeDialog}
+            >
+              <i className="fa fa-times" />&nbsp; Vazgeç
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
 
 
 export default class Datatables extends React.Component {
@@ -61,7 +92,12 @@ export default class Datatables extends React.Component {
                         <tbody>
                           {this.state.profiller.map(profil => {
                             return <tr key={profil.id}>
-                                <td style={{textAlign:'right'}}>
+                                <td
+                                  style={{
+                                    textAlign:
+                                      "right"
+                                  }}
+                                >
                                   {profil.id}
                                 </td>
                                 <td>
@@ -71,9 +107,18 @@ export default class Datatables extends React.Component {
                                   {profil.timestamp}
                                 </td>
                                 <td>
-                                  <a className="btn btn-xs btn-default" href="#">
+                                  {/* <a className="btn btn-xs btn-default" href="#">
                                     Profili sil
-                                  </a>
+                                  </a> */}
+
+                                  <UiDialogLauncher
+                                      header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğiniden emin misiniz?</h4>"
+                                      content={<SilDialogKutusu />}
+                                      className="btn btn-info">
+                                    Profili Sil
+                                  </UiDialogLauncher>
+
+
                                 </td>
                               </tr>;
                           })}
