@@ -122,7 +122,7 @@ export default class Datatables extends React.Component {
                         <tbody>
                           {this.state.profiller.map(profil => {
                            return (
-                                  <tr>
+                                  <tr key={profil.id}>
                                     <td>
                                       <label className="checkbox">
                                         <input key={profil.id} type="checkbox" name="checkbox-inline" />
