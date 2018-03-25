@@ -1,12 +1,59 @@
-import React from 'react'
+import React from 'react';
+import {Stats, BigBreadcrumbs, WidgetGrid, JarvisWidget}  from '../../../components';
+import Datatable from '../../../components/tables/Datatable';
+import axios from "axios";
 
-import {Stats, BigBreadcrumbs, WidgetGrid, JarvisWidget}  from '../../../components'
 
-import Datatable from '../../../components/tables/Datatable'
+// import data from "./data-profiller.json";
 
 
 export default class Datatables extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      profiller: []
+    }
+  }
+
+
+  componentDidMount() {
+
+        axios
+          .get("/assets/data/profiller.json")
+          .then(res => {
+            const profiller = res.data;
+            this.setState({ profiller });
+          })
+          .catch(err => {
+            console.log(err);
+          });
+
+  }
+
   render() {
+
+        // const DataGrid = () => {
+        //   return this.state.profiller.map(profil => {
+        //     return (
+        //       <tr>
+        //         <td>
+        //           <label className="checkbox">
+        //             <input key={profil.id} type="checkbox" name="checkbox-inline" />
+        //           </label>
+        //         </td>
+        //         <td>{profil.id}</td>
+        //         <td>{profil.name}</td>
+        //         <td>{profil.status}</td>
+        //         <td>{profil.timestamp}</td>
+        //         <td>
+        //           <button>Profili Sil</button>
+        //         </td>
+        //       </tr>
+        //     );
+        //   });
+        // };
+
     return <div id="content">
         {/* <div className="row">
           <BigBreadcrumbs items={['Genel Tanımlar', 'Profiller']} icon="fa fa-fw fa-table"
@@ -14,10 +61,14 @@ export default class Datatables extends React.Component {
           <Stats />
         </div> */}
 
+        {/* <ul>
+        { this.state.profiller.map(profil => <li>{profil.name}</li>)}
+        </ul> */}
+
         <WidgetGrid>
           <div className="row">
             <article className="col-sm-12">
-              <JarvisWidget editbutton={true} color="darken" colorbutton={false}>
+              <JarvisWidget editbutton={false} color="light" colorbutton={false}>
                 <header>
                   <span className="widget-icon">
                     {" "}
@@ -26,7 +77,7 @@ export default class Datatables extends React.Component {
                 </header>
                 <div>
                   <div className="widget-body no-padding">
-                    <Datatable options={{ ajax: "assets/api/tables/data-profiller.json", columns: [{ data: "id" }, { data: "name" }, { data: "status" }, { data: "timestamp" }] }} paginationLength={true} className="table table-striped table-bordered table-hover" width="100%">
+                    {/* <Datatable options={{ ajax: "assets/api/tables/data-profiller.json", columns: [{ data: "id" }, { data: "name" }, { data: "status" }, { data: "timestamp" }] }} paginationLength={true} className="table table-striped table-bordered table-hover" width="100%">
                       <thead>
                         <tr>
                           <th>Kodu</th>
@@ -41,7 +92,57 @@ export default class Datatables extends React.Component {
                           </th>
                         </tr>
                       </thead>
-                    </Datatable>
+                    </Datatable> */}
+
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                        <thead>
+                          <tr>
+                            <th />
+                            <th>
+                              Seç <input type="text" /> <a href="#" className="btn btn-xs btn-default pull-right" />
+                            </th>
+                            <th>
+                              Kodu <input type="text" /> <a href="#" className="btn btn-xs btn-default pull-right" />
+                            </th>
+                            <th>
+                              Adi <input type="text" /> <a href="#" className="btn btn-xs btn-default pull-right" />
+                            </th>
+                            <th>
+                              Durumu <input type="text" /> <a href="#" className="btn btn-xs btn-default pull-right" />
+                            </th>
+                            <th>
+                              Tarih <input type="text" /> <a href="#" className="btn btn-xs btn-default pull-right" />
+                            </th>
+                            <th>
+                              Aksiyon <a href="#" className="btn btn-xs btn-default pull-right" />
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.profiller.map(profil => {
+                           return (
+                                  <tr>
+                                    <td>
+                                      <label className="checkbox">
+                                        <input key={profil.id} type="checkbox" name="checkbox-inline" />
+                                      </label>
+                                    </td>
+                                    <td>{profil.id}</td>
+                                    <td>{profil.name}</td>
+                                    <td>{profil.status}</td>
+                                    <td>{profil.timestamp}</td>
+                                    <td>
+                                      <button>Profili Sil</button>
+                                    </td>
+                                  </tr>
+                           )
+                          })
+                        }
+
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </JarvisWidget>
