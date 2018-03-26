@@ -1,5 +1,5 @@
 export default {
-  path: "tables",
+  path: "verbis",
   component: require("../../components/common/Layout").default,
 
   childRoutes: [
