@@ -17,7 +17,7 @@ class SilDialogKutusu extends React.Component {
           <p>
             Eğer bu profil kişisel veri ve süreç envanteri
             ile ilişkilendirilmişse silinemeyecektir.
-            Öncelikle tüm ilişkileri silmelisiniz.
+            Öncelikle tüm ilişkileri silmeniz gerekir.
           </p>
 
           <div>
