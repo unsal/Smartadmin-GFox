@@ -112,7 +112,7 @@ export default class Datatables extends React.Component {
                                   </a> */}
 
                                   <UiDialogLauncher
-                                      header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğiniden emin misiniz?</h4>"
+                                      header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>"
                                       content={<SilDialogKutusu />}
                                       className="btn btn-info">
                                     Profili Sil
