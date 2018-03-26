@@ -38,12 +38,13 @@ class SilDialogKutusu extends React.Component {
 }
 
 
-export default class Datatables extends React.Component {
+export default class Datagrid extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      profiller: []
+      profiller: [],
+      searchString: ""
     }
   }
 
@@ -62,7 +63,23 @@ export default class Datatables extends React.Component {
 
   }
 
+  handleChange = e => {
+    e.preventDefault();
+    console.log("Key pressed");
+    this.setState({ searchString: e.target.value })
+  }
+
   render() {
+
+    let profiller = this.state.profiller;
+    let searchString = this.state.searchString.trim().toLowerCase();
+
+    if (searchString.length > 0) {
+       profiller = profiller.filter(p => {
+         return p.name.toLowerCase().match(searchString);
+       }
+      )
+    }
 
     return <div id="content">
         <WidgetGrid>
@@ -72,7 +89,7 @@ export default class Datatables extends React.Component {
                 <header>
                   <span className="widget-icon">
                     {" "}
-                    <i className="fa fa-table" />{" "}
+                    <i className="fa fa-fw fa-xs fa-user" />{" "}
                   </span> <h2>Profiller</h2>
                 </header>
                 <div>
@@ -83,42 +100,32 @@ export default class Datatables extends React.Component {
                           <tr>
                             <th>Kodu</th>
                             <th>
-                              <input type="text" placeholder="Adi" />
+                              <input type="text" placeholder="Adi" onChange={this.handleChange}/>
+                              <i className="fa fa-fw fa-xs fa-search" />
                             </th>
                             <th>Zaman Damgası</th>
                             <th>Aksiyon</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {this.state.profiller.map(profil => {
+                          {profiller.map(profil => {
                             return <tr key={profil.id}>
-                                <td
-                                  style={{
-                                    textAlign:
-                                      "right"
-                                  }}
-                                >
+                                <td style={{ textAlign: "right" }}>
                                   {profil.id}
                                 </td>
                                 <td>
+                                  {/* <i className="fa fa-fw fa-xs fa-user" /> */}
                                   {profil.name}
                                 </td>
-                                <td>
-                                  {profil.timestamp}
-                                </td>
+                                <td>{profil.timestamp}</td>
                                 <td>
                                   {/* <a className="btn btn-xs btn-default" href="#">
                                     Profili sil
                                   </a> */}
 
-                                  <UiDialogLauncher
-                                      header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>"
-                                      content={<SilDialogKutusu />}
-                                      className="btn btn-info">
+                                  <UiDialogLauncher header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-info">
                                     Profili Sil
                                   </UiDialogLauncher>
-
-
                                 </td>
                               </tr>;
                           })}
