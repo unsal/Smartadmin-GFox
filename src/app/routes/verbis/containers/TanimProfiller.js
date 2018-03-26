@@ -1,5 +1,5 @@
 import React from 'react';
-import {Stats, BigBreadcrumbs, WidgetGrid, JarvisWidget}  from '../../../components';
+import {Stats, WidgetGrid, JarvisWidget}  from '../../../components';
 import UiDialogLauncher from "../../../components/ui/UiDialogLauncher";
 import axios from "axios";
 
@@ -91,6 +91,11 @@ export default class Datagrid extends React.Component {
                     {" "}
                     <i className="fa fa-fw fa-xs fa-user" />{" "}
                   </span> <h2>Profiller</h2>
+                  {/* <span className="widget-icon">
+                    <button className="btn btn-xs btn-primary" type="button">
+                      <i className="fa fa-fw fa-xs fa-user" />Profil Ekle
+                    </button>
+                  </span> */}
                 </header>
                 <div>
                   <div className="widget-body no-padding">
@@ -100,7 +105,7 @@ export default class Datagrid extends React.Component {
                           <tr>
                             <th>Kodu</th>
                             <th>
-                              <input type="text" placeholder="Adi" onChange={this.handleChange}/>
+                              <input type="text" placeholder="Adi" onChange={this.handleChange} />
                               <i className="fa fa-fw fa-xs fa-search" />
                             </th>
                             <th>Zaman Damgası</th>
@@ -119,10 +124,6 @@ export default class Datagrid extends React.Component {
                                 </td>
                                 <td>{profil.timestamp}</td>
                                 <td>
-                                  {/* <a className="btn btn-xs btn-default" href="#">
-                                    Profili sil
-                                  </a> */}
-
                                   <UiDialogLauncher header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-info">
                                     Profili Sil
                                   </UiDialogLauncher>
