@@ -12,6 +12,7 @@ class SmallBreadcrumbs extends React.Component {
             <li key={it + idx}>{it}</li>
           ))
         }
+        <li><button className="btn btn-xs btn-primary" type="button">Ekle</button></li>
       </ol>
     )
   }
@@ -31,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
     return chain
   };
 
-  const items = navigation.items.reduce(titleReducer, ['Home']);
+  const items = navigation.items.reduce(titleReducer, ['Gfox']);
 
   return {items}
 };

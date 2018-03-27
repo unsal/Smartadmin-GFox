@@ -47,8 +47,6 @@ export default class BigBreadcrumbs extends React.Component {
     const first = _.head(this.state.items);
 
 
-
-
     return (
       <div className={this.props.className + ' big-breadcrumbs'}>
         <h1 className="page-title txt-color-blueDark">

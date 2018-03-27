@@ -10,6 +10,7 @@ import ResetWidgets from './ResetWidgets'
 import SmallBreadcrumbs from './SmallBreadcrumbs'
 
 
+
 const tooltip = (
   <Tooltip id="reset-widgets-suggestion"><i className='text-warning fa fa-warning'/> Warning! This will reset all your
     widget settings.</Tooltip>
@@ -25,6 +26,8 @@ export default class Ribbon extends React.Component {
                     </OverlayTrigger>
                 </span>
         <SmallBreadcrumbs />
+        
+
       </div>
     )
   }

@@ -124,7 +124,7 @@ export default class Datagrid extends React.Component {
                                 </td>
                                 <td>{profil.timestamp}</td>
                                 <td>
-                                  <UiDialogLauncher header="<h4><i class='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-info">
+                                  <UiDialogLauncher header="<h4><i className='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-default">
                                     Profili Sil
                                   </UiDialogLauncher>
                                 </td>
