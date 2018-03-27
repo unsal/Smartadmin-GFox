@@ -1,7 +1,8 @@
 import React from 'react';
-import {Stats, WidgetGrid, JarvisWidget}  from '../../../components';
-import UiDialogLauncher from "../../../components/ui/UiDialogLauncher";
+import {Stats, WidgetGrid, JarvisWidget}  from '../../../../components';
+import UiDialogLauncher from "../../../../components/ui/UiDialogLauncher";
 import axios from "axios";
+import FormEkle from "./TanimProfillerForm";
 
 
 // import data from "./data-profiller.json";
@@ -80,24 +81,25 @@ export default class Datagrid extends React.Component {
        }
       )
     }
-  
+
     return <div id="content">
         <WidgetGrid>
-         
-         {/* <a className="btn btn-info btn-xs" href="#">Profil Ekle</a> */}
+          {/* <a className="btn btn-info btn-xs" href="#">Profil Ekle</a> */}
 
           <div className="row">
             <article className="col-sm-12">
               <JarvisWidget editbutton={false} color="light" colorbutton={false}>
                 <header>
-                  {/* <span className="widget-icon">
-                    {" "}
-                    <i className="fa fa-fw fa-xs fa-user" />{" "}
-                  </span> <h2>Profiller</h2> */}
                   <span className="widget-icon">
-                     <a className="btn btn-info btn-xs" href="#">Profil Ekle</a>
-                  </span>
-                
+                    {" "}
+                    <i className="fa fa-fw fa-xs fa-user" />
+                  </span> <h2>Profiller</h2>
+                  <h2>
+                    <button className="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                      Ekle
+                    </button>
+                  </h2>
+
                 </header>
                 <div>
                   <div className="widget-body no-padding">
@@ -141,6 +143,9 @@ export default class Datagrid extends React.Component {
             </article>
           </div>
         </WidgetGrid>
+
+       <FormEkle id="myModal"/>
+
       </div>;
   }
 }

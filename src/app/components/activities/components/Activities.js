@@ -31,7 +31,7 @@ export default class Activities extends React.Component {
     return (
       <div>
                 <span id="activity" onClick={this.toggleDropdown} ref="dropdownToggle" className="activity-dropdown">
-                    <i className="fa fa-user"/>
+                    <i className="fa fa-bank"/>
                     <b className="badge bg-color-red">{count}</b>
                 </span>
         <div className="ajax-dropdown" ref="dropdown">
