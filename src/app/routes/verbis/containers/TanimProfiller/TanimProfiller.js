@@ -23,13 +23,13 @@ class SilDialogKutusu extends React.Component {
 
           <div>
             <button className="btn btn-default" onClick={this._submitDialog}>
-              <i className="fa fa-trash-o" />&nbsp; Sil
+              <i className="fa fa-trash-o" />&nbsp; Vazgeç
             </button> {' '}
             <button
               className="btn btn-danger"
               onClick={this.props.closeDialog}
             >
-              <i className="fa fa-times" />&nbsp; Vazgeç
+              <i className="fa fa-times" />&nbsp; Sil
             </button>
           </div>
         </form>

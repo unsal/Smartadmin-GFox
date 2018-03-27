@@ -20,6 +20,9 @@ return (
                 <div className="row">
                   <div className="col-md-12">
                     <div className="form-group">
+                      <input type="text" className="form-control" placeholder="Kodu" disabled />
+                    </div>
+                    <div className="form-group">
                       <input type="text" className="form-control" placeholder="Profil Adı" required />
                     </div>
                     <div className="form-group">

@@ -1,5 +1,5 @@
 {
-    "name": "Profiller",
+    "name": "profiller",
     "version": "0.0.0",
     "private": true,
     "main": "./TanimProfiller.js"
