@@ -80,22 +80,24 @@ export default class Datagrid extends React.Component {
        }
       )
     }
-
+  
     return <div id="content">
         <WidgetGrid>
+         
+         {/* <a className="btn btn-info btn-xs" href="#">Profil Ekle</a> */}
+
           <div className="row">
             <article className="col-sm-12">
               <JarvisWidget editbutton={false} color="light" colorbutton={false}>
                 <header>
-                  <span className="widget-icon">
+                  {/* <span className="widget-icon">
                     {" "}
                     <i className="fa fa-fw fa-xs fa-user" />{" "}
-                  </span> <h2>Profiller</h2>
-                  {/* <span className="widget-icon">
-                    <button className="btn btn-xs btn-primary" type="button">
-                      <i className="fa fa-fw fa-xs fa-user" />Profil Ekle
-                    </button>
-                  </span> */}
+                  </span> <h2>Profiller</h2> */}
+                  <span className="widget-icon">
+                     <a className="btn btn-info btn-xs" href="#">Profil Ekle</a>
+                  </span>
+                
                 </header>
                 <div>
                   <div className="widget-body no-padding">

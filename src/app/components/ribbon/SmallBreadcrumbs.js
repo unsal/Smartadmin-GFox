@@ -12,7 +12,6 @@ class SmallBreadcrumbs extends React.Component {
             <li key={it + idx}>{it}</li>
           ))
         }
-        <li><button className="btn btn-xs btn-primary" type="button">Ekle</button></li>
       </ol>
     )
   }
