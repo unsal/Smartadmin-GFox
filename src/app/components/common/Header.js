@@ -20,7 +20,7 @@ export default class Header extends React.Component {
       <div id="logo-group">
                 <span id="logo">
                     <img src="assets/img/logo.png" // place your logo here
-                         alt="SmartAdmin"/>
+                         alt="Gfox"/>
                 </span>
         {/* Note: The activity badge color changes when clicked and resets the number to 0
          Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications */}

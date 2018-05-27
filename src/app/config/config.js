@@ -332,4 +332,11 @@ if (SmartadminConfig.voice_command) {
   };
 }
 
+
+export const gfoxConfig = {
+  apiURL: 'http://localhost:2300',
+  // apiURL: 'http://bt.ozyegin.edu.tr:5000/projeler'
+};
+
+
 export const config = SmartadminConfig;

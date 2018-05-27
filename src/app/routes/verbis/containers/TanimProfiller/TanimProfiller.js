@@ -3,6 +3,7 @@ import {Stats, WidgetGrid, JarvisWidget}  from '../../../../components';
 import UiDialogLauncher from "../../../../components/ui/UiDialogLauncher";
 import axios from "axios";
 import FormEkle from "./TanimProfillerForm";
+import {gfoxConfig}  from '../../../../config/config';
 
 
 // import data from "./data-profiller.json";
@@ -39,20 +40,17 @@ class SilDialogKutusu extends React.Component {
 }
 
 
-export default class Datagrid extends React.Component {
+class Datagrid extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       profiller: [],
       searchString: ""
     }
   }
 
-
-  componentDidMount() {
-
-        axios
+  jsonToState() {
+    axios
           .get("assets/data/profiller.json")
           .then(res => {
             const profiller = res.data;
@@ -61,6 +59,25 @@ export default class Datagrid extends React.Component {
           .catch(err => {
             console.log(err);
           });
+  }
+
+  dbToState() {
+    const url = gfoxConfig.apiURL+"/profiller";
+    // console.log(url)
+    axios.get(url)
+        .then(res => {
+              const profiller = res.data.Profiller;
+              this.setState({ profiller });
+              // console.log(data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+  }
+
+  componentDidMount() {
+
+        this.dbToState();
 
   }
 
@@ -72,7 +89,9 @@ export default class Datagrid extends React.Component {
 
   render() {
 
+    // !!!because the component is rendered before the async data arrived, you should control before to render
     let profiller = this.state.profiller;
+
     let searchString = this.state.searchString.trim().toLowerCase();
 
     if (searchString.length > 0) {
@@ -109,7 +128,7 @@ export default class Datagrid extends React.Component {
                           <tr>
                             <th>Kodu</th>
                             <th>
-                              <input type="text" placeholder="Adi" onChange={this.handleChange} />
+                              <input autoFocus type="text" placeholder="" onChange={this.handleChange} />
                               <i className="fa fa-fw fa-xs fa-search" />
                             </th>
                             <th>Zaman Damgası</th>
@@ -117,23 +136,27 @@ export default class Datagrid extends React.Component {
                           </tr>
                         </thead>
                         <tbody>
-                          {profiller.map(profil => {
-                            return <tr key={profil.id}>
-                                <td style={{ textAlign: "right" }}>
-                                  {profil.id}
-                                </td>
-                                <td>
-                                  {/* <i className="fa fa-fw fa-xs fa-user" /> */}
-                                  {profil.name}
-                                </td>
-                                <td>{profil.timestamp}</td>
-                                <td>
-                                  <UiDialogLauncher header="<h4><i className='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-default">
-                                    Profili Sil
-                                  </UiDialogLauncher>
-                                </td>
-                              </tr>;
-                          })}
+                          {
+
+                            profiller
+                              .map(profil => {
+                                      return <tr key={profil.id}>
+                                          <td style={{ textAlign: "right" }}>
+                                            {profil.id}
+                                          </td>
+                                          <td>
+                                            {/* <i className="fa fa-fw fa-xs fa-user" /> */}
+                                            {profil.name}
+                                          </td>
+                                          <td>{profil.timestamp}</td>
+                                          <td>
+                                            <UiDialogLauncher header="<h4><i className='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-default">
+                                              Profili Sil
+                                            </UiDialogLauncher>
+                                          </td>
+                                        </tr>;
+                                    })
+                        }
                         </tbody>
                       </table>
                     </div>
@@ -147,5 +170,37 @@ export default class Datagrid extends React.Component {
        <FormEkle id="myModal"/>
 
       </div>;
+  }
+
+}
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true });
+    // You can also log the error to an error reporting service
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>TanımProfiller.js kodunda Hata alındı!!</h1>;
+    }
+    return this.props.children;
+  }
+}
+
+export default class Response extends React.Component {
+  render() {
+    return (
+        <ErrorBoundary>
+          <Datagrid />
+        </ErrorBoundary>
+    );
   }
 }
