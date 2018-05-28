@@ -1,0 +1,6 @@
+{
+    "name": "tanimlar",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./Tanimlar.js"
+}
