@@ -131,7 +131,7 @@ class Datagrid extends React.Component {
                               <i className="fa fa-fw fa-xs fa-search" />
                             </th>
                             <th>Zaman Damgası</th>
-                            <th>Eylem</th>
+                            <th>Aksiyon</th>
                           </tr>
                         </thead>
                         <tbody>
