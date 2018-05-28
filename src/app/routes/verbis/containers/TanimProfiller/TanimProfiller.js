@@ -6,7 +6,7 @@ import FormEkle from "./TanimProfillerForm";
 import {gfoxConfig}  from '../../../../config/config';
 
 
-// import data from "./data-profiller.json";
+// import data from "./data-data.json";
 class SilDialogKutusu extends React.Component {
   _submitDialog = e => {
     console.log("submit stuff");
@@ -17,7 +17,7 @@ class SilDialogKutusu extends React.Component {
       <div id="dialog_simple">
         <form>
           <p>
-            Eğer bu profil kişisel veri ve süreç envanteri
+            Eğer bu key kişisel veri ve süreç envanteri
             ile ilişkilendirilmişse silinemeyecektir.
             Öncelikle tüm ilişkileri silmeniz gerekir.
           </p>
@@ -44,7 +44,7 @@ class Datagrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profiller: [],
+      data: [],
       searchString: ""
     }
   }
@@ -53,8 +53,8 @@ class Datagrid extends React.Component {
     axios
           .get("assets/data/profiller.json")
           .then(res => {
-            const profiller = res.data;
-            this.setState({ profiller });
+            const data = res.data;
+            this.setState({ data });
           })
           .catch(err => {
             console.log(err);
@@ -66,8 +66,8 @@ class Datagrid extends React.Component {
     // console.log(url)
     axios.get(url)
         .then(res => {
-              const profiller = res.data.Profiller;
-              this.setState({ profiller });
+              const data = res.data;
+              this.setState({ data });
               // console.log(data);
         })
         .catch(err => {
@@ -78,7 +78,6 @@ class Datagrid extends React.Component {
   componentDidMount() {
 
         this.dbToState();
-
   }
 
   handleChange = e => {
@@ -90,20 +89,20 @@ class Datagrid extends React.Component {
   render() {
 
     // !!!because the component is rendered before the async data arrived, you should control before to render
-    let profiller = this.state.profiller;
+    let data = this.state.data;
 
     let searchString = this.state.searchString.trim().toLowerCase();
 
     if (searchString.length > 0) {
-       profiller = profiller.filter(p => {
-         return p.name.toLowerCase().match(searchString);
+       data = data.filter(key => {
+         return key.name.toLowerCase().match(searchString);
        }
       )
     }
 
     return <div id="content">
         <WidgetGrid>
-          {/* <a className="btn btn-info btn-xs" href="#">Profil Ekle</a> */}
+          {/* <a className="btn btn-info btn-xs" href="#">key Ekle</a> */}
 
           <div className="row">
             <article className="col-sm-12">
@@ -112,7 +111,7 @@ class Datagrid extends React.Component {
                   <span className="widget-icon">
                     {" "}
                     <i className="fa fa-fw fa-xs fa-user" />
-                  </span> <h2>Profiller</h2>
+                  </span> <h2>data</h2>
                   <h2>
                     <button className="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
                       Ekle
@@ -138,20 +137,20 @@ class Datagrid extends React.Component {
                         <tbody>
                           {
 
-                            profiller
-                              .map(profil => {
-                                      return <tr key={profil.id}>
+                            data
+                              .map(key => {
+                                      return <tr key={key.id}>
                                           <td style={{ textAlign: "right" }}>
-                                            {profil.id}
+                                            {key.id}
                                           </td>
                                           <td>
                                             {/* <i className="fa fa-fw fa-xs fa-user" /> */}
-                                            {profil.name}
+                                            {key.name}
                                           </td>
-                                          <td>{profil.timestamp}</td>
+                                          <td>{key.timestamp}</td>
                                           <td>
-                                            <UiDialogLauncher header="<h4><i className='fa fa-warning'/> Bu profili silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-default">
-                                              Profili Sil
+                                            <UiDialogLauncher header="<h4><i className='fa fa-warning'/> Bu keyi silmek istediğinizden emin misiniz?</h4>" content={<SilDialogKutusu />} className="btn btn-default">
+                                              keyi Sil
                                             </UiDialogLauncher>
                                           </td>
                                         </tr>;
@@ -189,7 +188,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return <h1>TanımProfiller.js kodunda Hata alındı!!</h1>;
+      return <h1>Tanımdata.js kodunda Hata alındı!!</h1>;
     }
     return this.props.children;
   }

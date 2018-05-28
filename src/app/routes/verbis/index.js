@@ -10,6 +10,15 @@ export default {
           cb(null, m.default);
         });
       }
-    }
+    },
+    {
+      path: "birimler",
+      getComponent(nextState, cb) {
+        System.import("./containers/Tanimlar").then(m => {
+          cb(null, m.default);
+        });
+      }
+    },
+
   ]
 };
